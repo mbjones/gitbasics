@@ -201,7 +201,7 @@ img
     vertical-align: middle;
     }
 
-.imgright
+.imgright, img[alt='versions']
 	{ 
 	width: 300px; 
 	float: right;
@@ -214,6 +214,7 @@ div.figure /* Pandoc figure-style image */
     margin-right: auto;
     text-align: center;
     font-style: italic;
+	float: right;
     }
 
 p.caption /* Pandoc figure-style caption within div.figure */

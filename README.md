@@ -1,11 +1,8 @@
----
-title: Git Basics
-author: Matt Jones
----
-
-![](version-graph.png =250x)
+# Git Basics
 
 ## Why version control, and why Git?
+
+![versions](version-graph.png "This is a caption")
 
 - Save time
 - Make changes with confidence
@@ -100,3 +97,9 @@ git commit -m "Added a newline to end of Readme."
 git status
 git push origin master
 ```
+
+---
+title: Git Basics
+author: Matt Jones
+---
+
