@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Matt Jones" />
+  <meta name="date" content="2014-04-29" />
+  <title>Git Basics</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" href="buttondown.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">Git Basics</h1>
+<h2 class="author">Matt Jones</h2>
+<h3 class="date">April 29, 2014</h3>
+</div>
+<p><img class="imgright" src="version-graph.png"></p>
+<h2 id="why-version-control-and-why-git">Why version control, and why Git?</h2>
+<ul>
+<li>Save time</li>
+<li>Make changes with confidence</li>
+<li>Reuse your work</li>
+<li>Collaborate with others</li>
+</ul>
+<h2 id="some-examples">Some examples</h2>
+<ul>
+<li><a href="https://github.com/seananderson">Sean Anderson</a></li>
+<li><a href="https://github.com/ropensci/rfishbase">ROpensci rFishbase</a></li>
+</ul>
+<h2 id="a-quick-demo-tutorial">A quick demo tutorial</h2>
+<ul>
+<li><a href="http://try.github.io/">Code School tutorial</a></li>
+</ul>
+<h2 id="installing-git-and-related-software">Installing Git and related software</h2>
+<h3 id="mac-os-x">Mac OS X</h3>
+<ul>
+<li>Open 'Terminal'</li>
+<li>Check if 'git' is installed</li>
+<li>If not, install from: <a href="http://git-scm.com/download/mac">Git for Mac</a></li>
+<li>Before running the first time, you must configure your name and email:</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global user.name <span class="st">&quot;Matt Jones&quot;</span>
+<span class="kw">git</span> config --global user.email <span class="st">&quot;jones@nceas.ucsb.edu&quot;</span></code></pre>
+<ul>
+<li>Optional: Install <a href="https://api.textmate.org/downloads/release">TextMate</a>, and configure it as the editor for git commit messages</li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global core.editor <span class="st">&#39;mate -w&#39;</span></code></pre>
+<h3 id="windows">Windows</h3>
+<ul>
+<li>Install <a href="http://msysgit.github.io/">Git Bash</a></li>
+</ul>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> config --global user.name <span class="st">&quot;Matt Jones&quot;</span>
+<span class="kw">git</span> config --global user.email <span class="st">&quot;jones@nceas.ucsb.edu&quot;</span>
+<span class="kw">git</span> config --global core.editor <span class="st">&#39;&quot;C:\Program Files (x86)\Windows NT\Accessories\wordpad.exe&quot;&#39;</span></code></pre>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>Version control systems</li>
+<li>Creating a repository</li>
+<li>Adding and committing files</li>
+<li>Working with remote repositories</li>
+<li>Using tags</li>
+<li>Branching and merging</li>
+</ul>
+<h2 id="typical-workflow">Typical workflow</h2>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">mkdir</span> test
+<span class="kw">cd</span> test
+<span class="kw">echo</span> <span class="st">&quot;This is a test file.&quot;</span> <span class="kw">&gt;</span> README.txt
+
+<span class="co"># Initialize the git repository and start tracking files</span>
+<span class="kw">git</span> init
+<span class="kw">git</span> status
+<span class="kw">git</span> add README.txt
+<span class="kw">git</span> status
+<span class="kw">git</span> commit -m <span class="st">&quot;Initial draft of README.&quot;</span>
+
+<span class="co"># Make some changes to the file and commit them</span>
+<span class="kw">echo</span> <span class="st">&quot;===================&quot;</span> <span class="kw">&gt;&gt;</span> README.txt
+<span class="kw">git</span> status
+<span class="kw">git</span> add README.txt
+<span class="kw">git</span> status
+<span class="kw">git</span> commit -m <span class="st">&quot;Added formatting.&quot;</span>
+
+<span class="co"># View the history of changes</span>
+<span class="kw">git</span> log
+<span class="kw">git</span> blame README.txt</code></pre>
+<h2 id="working-with-remote-repositories">Working with remote repositories</h2>
+<p>Use <code>git clone</code> to copy a remote repository to your local host, and then use <code>git push</code> to write your changes back up to the repository.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> clone git@github.com:mbjones/pgame.git
+<span class="kw">git</span> remote -v
+<span class="kw">git</span> pull origin master
+<span class="kw">echo</span> <span class="st">&quot; &quot;</span> <span class="kw">&gt;&gt;</span> README.md
+<span class="kw">git</span> add README.md
+<span class="kw">git</span> commit -m <span class="st">&quot;Added a newline to end of Readme.&quot;</span>
+<span class="kw">git</span> status
+<span class="kw">git</span> push origin master</code></pre>
+</body>
+</html>
