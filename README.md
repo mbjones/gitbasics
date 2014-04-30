@@ -2,7 +2,7 @@
 % Matt Jones
 % April 29, 2014
 
-<img class="imgright" src="version-graph.png">
+<img class="imgright" src="version-graph.png" style="float: right; width: 300px;">
 
 ## Why version control, and why Git?
 
