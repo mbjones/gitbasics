@@ -1,6 +1,7 @@
-% Git Basics
-% Matt Jones
-% April 29, 2014
+---
+title: Git Basics
+author: Matt Jones
+---
 
 <img class="imgright" src="version-graph.png" style="float: right; width: 300px;">
 
