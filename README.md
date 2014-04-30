@@ -3,7 +3,7 @@ title: Git Basics
 author: Matt Jones
 ---
 
-<img class="imgright" src="version-graph.png" style="float: right; width: 300px;">
+![](version-graph.png =250x)
 
 ## Why version control, and why Git?
 
